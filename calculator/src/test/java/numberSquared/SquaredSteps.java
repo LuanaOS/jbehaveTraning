@@ -1,11 +1,8 @@
-package jbehave;
+package numberSquared;
 
 import org.jbehave.core.annotations.*;
 
-import java.sql.Driver;
-
-public class Steps {
-
+public class SquaredSteps {
     int x;
 
     @Given("a variable x with value $value")
@@ -23,5 +20,4 @@ public class Steps {
         if (value != x)
             throw new RuntimeException("x is " + x + ", but should be " + value);
     }
-
 }

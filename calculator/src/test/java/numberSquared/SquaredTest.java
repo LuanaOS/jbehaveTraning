@@ -1,5 +1,4 @@
-package jbehave;
-
+package numberSquared;
 
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
@@ -12,12 +11,12 @@ import org.jbehave.core.steps.InstanceStepsFactory;
 import java.util.Arrays;
 import java.util.List;
 
-public class Test extends JUnitStories {
+public class SquaredTest extends JUnitStories {
     @Override
     public InjectableStepsFactory stepsFactory() {
         return new InstanceStepsFactory(configuration(),
                 // Create an instance of the class with step definitions
-                new Steps());
+                new SquaredSteps());
     }
 
     @Override
@@ -28,6 +27,6 @@ public class Test extends JUnitStories {
     }
 
     protected List<String> storyPaths() {
-        return Arrays.asList("MyStory.story");
+        return Arrays.asList("Squared.story");
     }
 }
