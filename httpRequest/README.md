@@ -1,5 +1,7 @@
-# JBehave Training
-JBehave Framework
+# HTTP Request
+Simple HTTP Request in Java
+
+## Getting Started
 
 ## Getting Started
 ### Setting up Maven
@@ -68,5 +70,4 @@ Or you can go on the top bar: Run > Run '<Test>.java'
 
 ## Sources:
 
-* JBehave Configuration Tutorial: https://blog.codecentric.de/en/2012/06/jbehave-configuration-tutorial/
-* Testing a REST API with JBehave: https://www.baeldung.com/jbehave-rest-testing
+* Do a Simple HTTP Request in Java: https://www.baeldung.com/java-http-request
