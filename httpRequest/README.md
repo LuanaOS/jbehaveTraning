@@ -2,8 +2,6 @@
 Simple HTTP Request in Java
 
 ## Getting Started
-
-## Getting Started
 ### Setting up Maven
 #### Step 1 - Create project:
 * Open **IntelliJ** and create a *new project*.
