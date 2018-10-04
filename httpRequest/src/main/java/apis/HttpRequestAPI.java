@@ -19,8 +19,8 @@ public class HttpRequestAPI {
             this.conn.setConnectTimeout(5000);
             this.conn.setReadTimeout(5000);
             this.conn.setInstanceFollowRedirects(true);
-            this.conn.setDoInput (true);
-            this.conn.setDoOutput(true);
+//            this.conn.setDoInput (true);
+//            this.conn.setDoOutput(true);
             this.conn.setUseCaches (false);
             this.conn.setRequestMethod("GET");
             this.conn.setRequestProperty("Content-Type","application/json");
@@ -37,6 +37,16 @@ public class HttpRequestAPI {
             e.printStackTrace();
         }
         return rCode;
+    }
+
+    public String messageError() {
+        String error = null;
+        try {
+            error = this.conn.getResponseMessage();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return error;
     }
 
     public JsonPath responseConnection(){

@@ -1,5 +1,5 @@
 # HTTP Request
-Simple HTTP Request in Java
+Simple HTTP Request in Java using Food Database API.
 
 ## Getting Started
 ### Setting up Maven
@@ -53,6 +53,11 @@ To set up JBehave you need to add the dependency as a dependency on pom.xml file
         <artifactId>jbehave-core</artifactId>
         <version>4.3.5</version>
     </dependency>
+    <dependency>
+        <groupId>com.jayway.restassured</groupId>
+        <artifactId>json-path</artifactId>
+        <version>2.9.0</version>
+    </dependency>
 </dependencies>
 ```
 
@@ -69,3 +74,9 @@ Or you can go on the top bar: Run > Run '<Test>.java'
 ## Sources:
 
 * Do a Simple HTTP Request in Java: https://www.baeldung.com/java-http-request
+* How to send HTTP request GET/POST in Java: https://www.mkyong.com/java/how-to-send-http-request-getpost-in-java/
+* Jbehave: How to test rest services with Rest Assured: https://www.youtube.com/watch?v=4UVTFShGs24
+
+### API: Food Database
+* Get API credential: https://developer.edamam.com/food-database-api
+* Documentation: https://developer.edamam.com/food-database-api-docs

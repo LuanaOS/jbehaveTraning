@@ -38,8 +38,13 @@ public class HttpRequestSteps {
         JsonPath result = http.responseConnection();
 
         Assert.assertEquals(result.getString("text"), ingredient);
-        System.out.println("-->Ingredient: " + result.get("text"));
-        System.out.println("-->Label: " + result.get("parsed.food.label"));
+        System.out.println("\n-->Ingredient: " + result.get("text"));
+        System.out.println("-->Label: " + result.get("parsed.food.label") + "\n");
 //        System.out.println(result.get("hints.food.nutrients"));
+    }
+
+    @Then("I check which error it is")
+    public void checkingTheError(){
+        System.out.println("\n!!! Error: " + http.getStatus() + " Message: " + http.messageError() + "\n");
     }
 }
