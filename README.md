@@ -100,4 +100,5 @@ Or you can go on the top bar: Run > Run '<Test>.java'
 * Java no Ubuntu: veja como instalar o OpenJDK 8: https://www.edivaldobrito.com.br/java-no-ubuntu-instalar-o-openjdk-8/
 * JBehave: https://jbehave.org/
 * JBehave Configuration Tutorial: https://blog.codecentric.de/en/2012/06/jbehave-configuration-tutorial/
+* JBehave Configure a Project: https://support.smartbear.com/testleft/docs/bdd/tutorial/jbehave/configure-project.html
 

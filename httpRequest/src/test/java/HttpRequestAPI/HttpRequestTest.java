@@ -27,6 +27,6 @@ public class HttpRequestTest extends JUnitStories {
     }
 
     protected List<String> storyPaths() {
-        return Arrays.asList("Story.story");
+        return Arrays.asList("HttpRequestStory.story");
     }
 }
