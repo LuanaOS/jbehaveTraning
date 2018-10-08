@@ -1,4 +1,4 @@
-package user;
+package steps.user;
 
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
@@ -11,12 +11,12 @@ import org.jbehave.core.steps.InstanceStepsFactory;
 import java.util.Arrays;
 import java.util.List;
 
-public class UserRequest extends JUnitStories {
+public class UserTest extends JUnitStories {
     @Override
     public InjectableStepsFactory stepsFactory() {
         return new InstanceStepsFactory(configuration(),
                 // Create an instance of the class with step definitions
-                new UserRequestSteps());
+                new UserStep());
     }
 
     @Override
@@ -27,6 +27,6 @@ public class UserRequest extends JUnitStories {
     }
 
     protected List<String> storyPaths() {
-        return Arrays.asList("Story.story");
+        return Arrays.asList("UserStory.story");
     }
 }
