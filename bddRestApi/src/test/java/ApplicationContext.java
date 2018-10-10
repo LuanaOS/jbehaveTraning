@@ -20,7 +20,7 @@ public class ApplicationContext {
         adminApiAppsReferences.put(userId, userResponse);
     }
 
-    public UserResponse lookupAdminApiAppReference(String userId) {
+    public UserResponse lookupAdminApiUserReference(String userId) {
         UserResponse userResponse = adminApiAppsReferences.get(userId);
         if (userResponse == null) {
             try {

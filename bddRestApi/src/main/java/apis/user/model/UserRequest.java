@@ -1,7 +1,5 @@
 package apis.user.model;
 
-import com.sun.xml.internal.fastinfoset.util.StringArray;
-
 import java.util.List;
 
 public class UserRequest {

@@ -1,5 +1,8 @@
 package apis.user.model;
 
+import client.BaseClient;
+
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class UserResponse {
@@ -8,6 +11,16 @@ public class UserResponse {
     private UserSystemInfo userSystemInfo;
     private List<String> roles;
     private String sessionToken;
+
+    public UserResponse(){
+    }
+
+    public UserResponse(BaseClient<Object> client, LinkedHashMap<String, Object> resp){
+        setUserAttributes((UserAttributes) client.convertFromLinkedHashMap(UserAttributes.class, (LinkedHashMap) resp.get("userAttributes")));
+        setUserSystemInfo((UserSystemInfo) client.convertFromLinkedHashMap(UserSystemInfo.class, (LinkedHashMap) resp.get("userSystemInfo")));
+        setRoles((List<String>) resp.get("roles"));
+        setSessionToken((String) resp.get("sessionToken"));
+    }
 
     public UserAttributes getUserAttributes() {
         return userAttributes;
@@ -34,7 +47,7 @@ public class UserResponse {
     }
 
     public String getSessionToken() {
-        return sessionToken;
+        return this.sessionToken;
     }
 
     public void setSessionToken(String sessionToken) {

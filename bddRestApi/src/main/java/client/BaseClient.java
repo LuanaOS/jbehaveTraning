@@ -1,5 +1,6 @@
 package client;
 
+import apis.ApiException;
 import client.model.Request;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -45,7 +46,7 @@ public class BaseClient<T> {
     }
 
 
-    public T doGet(Request request) throws Exception {
+    public T doGet(Request request) throws ApiException {
         Invocation.Builder builder = buildApiRequest(request);
 
         Response response = builder.get();
@@ -59,7 +60,7 @@ public class BaseClient<T> {
         return builder.get();
     }
 
-    public T doPost(Request request){
+    public T doPost(Request request) throws ApiException {
         Invocation.Builder builder = buildApiRequest(request);
 
         Response response = builder.post(request.getPayload());
@@ -67,7 +68,7 @@ public class BaseClient<T> {
         return getResponse(request, response);
     }
 
-    public T doPut(Request request){
+    public T doPut(Request request) throws ApiException {
         Invocation.Builder builder = buildApiRequest(request);
 
         Response response = builder.put(request.getPayload());
@@ -75,7 +76,7 @@ public class BaseClient<T> {
         return getResponse(request, response);
     }
 
-    public T doDelete(Request request){
+    public T doDelete(Request request) throws ApiException {
         Invocation.Builder builder = buildApiRequest(request);
 
         Response response = builder.delete();
@@ -83,13 +84,12 @@ public class BaseClient<T> {
         return getResponse(request, response);
     }
 
-    private T getResponse(Request request, Response response) {
+    private T getResponse(Request request, Response response) throws ApiException {
         if (response.getStatusInfo().getFamily() == Response.Status.Family.SUCCESSFUL) {
             return (T) response.readEntity(request.getReturnObjectType());
         } else {
             String stringError = response.readEntity(String.class);
-            return (T) stringError;
-//            throw new (response.getStatusInfo().getStatusCode(), "Error: " + stringError);
+            throw new ApiException(response.getStatusInfo().getStatusCode(), "Error: " + stringError);
         }
     }
 
