@@ -22,8 +22,10 @@ public class UserApi {
         request.setPath(path);
         request.setPayload(Entity.json(payload));
         request.setReturnObjectType(LinkedHashMap.class);
-        Map<String, String> headers = getSessionTokenHeader(sessionToken);
-        request.setHeaders(headers);
+        if (sessionToken != null) {
+            Map<String, String> headers = getSessionTokenHeader(sessionToken);
+            request.setHeaders(headers);
+        }
 
         LinkedHashMap<String, Object> response = (LinkedHashMap<String, Object>) client.doPost(request);
 
