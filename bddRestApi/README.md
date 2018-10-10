@@ -78,6 +78,8 @@ You should have the structure of the files as below:
             * user (Package)
                 * UserStep.java
                 * UserTest.java
+            * utils
+                * ApplicationContext
     * resources
         * UserStory.story
 * <Project_Name>.iml

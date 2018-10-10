@@ -1,3 +1,5 @@
+package utils;
+
 import apis.user.model.UserResponse;
 
 import java.util.Map;
