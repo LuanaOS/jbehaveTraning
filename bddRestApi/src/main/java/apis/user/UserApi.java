@@ -29,7 +29,6 @@ public class UserApi {
 
         LinkedHashMap<String, Object> response = (LinkedHashMap<String, Object>) client.doPost(request);
 
-
         UserResponse userResponse = new UserResponse(client, response);
         return userResponse;
     }
