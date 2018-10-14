@@ -49,11 +49,11 @@ public class RoomAttributes {
         this.discoverable = discoverable;
     }
 
-    public boolean isVisibility() {
+    public boolean isPublic() {
         return visibility;
     }
 
-    public void setVisibility(boolean visibility) {
+    public void setPublic(boolean visibility) {
         this.visibility = visibility;
     }
 }

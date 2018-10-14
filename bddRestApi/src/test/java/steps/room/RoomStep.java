@@ -21,10 +21,10 @@ public class RoomStep {
 
         RoomApi roomApi = new RoomApi();
         // ENDPOINT field visibility
-        RoomResponse roomResponse = roomApi.createRoom(new Envelope<>(roomRequest), "/v2/5bbfc2f03200004e006a3006");
+//        RoomResponse roomResponse = roomApi.createRoom(new Envelope<>(roomRequest), "/v2/5bbfc2f03200004e006a3006");
         
         // ENDPOINT field public
-        //        RoomResponse roomResponse = roomApi.createRoom(new Envelope<>(roomRequest), "/v2/5bab95f83100004c00654436");
+                RoomResponse roomResponse = roomApi.createRoom(new Envelope<>(roomRequest), "/v2/5bab95f83100004c00654436");
 
     }
 
