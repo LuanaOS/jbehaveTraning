@@ -7,6 +7,7 @@ import org.jbehave.core.reporters.Format;
 import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
+import steps.user.UserStep;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +17,7 @@ public class RoomTest extends JUnitStories {
     public InjectableStepsFactory stepsFactory() {
         return new InstanceStepsFactory(configuration(),
                 // Create an instance of the class with step definitions
-                new RoomStep());
+                new UserStep(), new RoomStep());
     }
 
     @Override
@@ -27,6 +28,6 @@ public class RoomTest extends JUnitStories {
     }
 
     protected List<String> storyPaths() {
-        return Arrays.asList("RoomStory.story");
+        return Arrays.asList("UserStory.story", "RoomStory.story");
     }
 }

@@ -20,29 +20,27 @@ import static org.junit.Assert.fail;
 
 public class UserStep {
 
-    @Then("an user with the data $emailAddress $firstName $lastName $userName $roles is created")
-    public void createUser(String email, String firstName, String lastName, String userName, List<String> roles) throws ApiException {
+    public static ApplicationContext appContxt = new ApplicationContext();
+
+    @Then("an user with the data $emailAddress $firstName $lastName $userName $roles is created $path")
+    public void createUser(String email, String firstName, String lastName, String userName, List<String> roles, String path) throws ApiException {
         //1) Montar o UserRequest com os dados do user
         UserRequest userRequest = buildUserAttributes(email, firstName, lastName, userName, roles);
         String sessionToken = "testSessionToken";
 
-
         //2) chamada da API UserApi recebendo UserResponse
         UserApi userApi = new UserApi();
-        UserResponse userResponse = userApi.createUser(sessionToken, new Envelope<>(userRequest), "/v2/5baba27f3100005500654488");
+        UserResponse userResponse = userApi.createUser(sessionToken, new Envelope<>(userRequest), path);
 
         //3) fazer os asserts se os dados do UserRequest é igual ao dados do UserResponse
         assertUser(userRequest, userResponse);
 
-
         //4) adiconar no contexto caso tenha sucesso
-        ApplicationContext appContxt = new ApplicationContext();
         appContxt.addAdminApiUserReference(userResponse.getUserSystemInfo().getId().toString(), userResponse);
-
     }
 
     @Then("an user cannot be created without field $field")
-    public void createUserWithoutFirstName(String field) throws ApiException {
+    public void createUserWithoutField(String field) throws ApiException {
 
         //1) Montar o UserRequest com os dados do user
         UserRequest userRequest = buildUserAttributes();

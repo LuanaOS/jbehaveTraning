@@ -10,8 +10,6 @@ public class ApplicationContext {
     private Map<String, UserResponse> adminApiAppsReferences = new ConcurrentHashMap<>();
 
     public void addAdminApiUserReference(String userId, UserResponse userResponse) {
-
-
         if (adminApiAppsReferences.containsKey(userId)) {
             try {
                 throw new Exception(userId);
