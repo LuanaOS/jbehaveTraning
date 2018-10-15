@@ -60,6 +60,13 @@ You should have the structure of the files as below:
     * java
         * apis (Package)
             * ApiException.java
+            * room (Package)
+                * RoomApi.java
+                * model (Package)
+                    * RoomAttributes.java
+                    * RoomRequest.java
+                    * RoomResponse.java
+                    * RoomSystemInfo.java
             * user (Package)
                 * UserApi.java
                 * model (Package)
@@ -75,14 +82,18 @@ You should have the structure of the files as below:
   * test
     * java
         * steps (Package)
+            * room (Package)
+                * RoomStep.java
+                * RoomTest.java
             * user (Package)
                 * UserStep.java
                 * UserTest.java
     * resources
+        * RoomStory.story
         * UserStory.story
 * <Project_Name>.iml
 * pom.xml
 
 
 ## Running tests:
-Run /src/test/java/steps/user/UserTest.java
+Run /src/test/java/steps/user/RoomTest.java
