@@ -43,7 +43,7 @@ public class UserStep {
     @Then("an user cannot be created without field $field")
     public void createUserWithoutFirstName(String field) throws ApiException {
 
-    //1) Montar o UserRequest com os dados do user
+    //1) Create the UserRequest with the user data
         UserRequest userRequest = buildUserAttributes();
         String sessionToken = new String();
         String path = new String();
@@ -63,7 +63,7 @@ public class UserStep {
     //1.4) Endpoint invalid session token (error 401)
         //code
 
-        //2) call UserApi creating a user that receives a UserResponse, if it fails then return error
+        //2) call the UserApi receiving UserResponse
         UserApi userApi = new UserApi();
 
         try {
