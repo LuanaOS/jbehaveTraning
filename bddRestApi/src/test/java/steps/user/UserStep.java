@@ -11,27 +11,31 @@ import org.apache.http.*;
 
 import org.jbehave.core.annotations.*;
 import org.junit.Assert;
+import utils.ApplicationContext;
+
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.Assert.fail;
 
 public class UserStep {
+    //
+    public static ApplicationContext appContxt = new ApplicationContext();
 
     @Then("an user with the data $emailAddress $firstName $lastName $userName $roles is created")
     public void createUser(String email, String firstName, String lastName, String userName, List<String> roles) throws ApiException {
 
-    //1) Montar o UserRequest com os dados do user
+    //1) Create the UserRequest with the user data
         //code
 
-    //2) chamada da API UserApi recebendo UserResponse
+    //2) call the UserApi receiving UserResponse
         //code
 
-    //3) fazer os asserts se os dados do UserRequest é igual ao dados do UserResponse
+    //3) do the asserts between the data of UserRequest with UserResponse
         //code
 
 
-    //4) adiconar no contexto caso tenha sucesso
+    //4) if the asserts is successful add user in the ApplicationContext
         //code
 
     }
@@ -41,12 +45,13 @@ public class UserStep {
 
     //1) Montar o UserRequest com os dados do user
         UserRequest userRequest = buildUserAttributes();
-        String sessionToken = "testSessionToken";
+        String sessionToken = new String();
+        String path = new String();
 
-        String path = null;
     //1.1) Endpoint firstName is required (error 400)
         if (field.equals("firstName")) {
             userRequest.getUserAttributes().setFirstName(null);
+            sessionToken = "testSessionToken";
             path = "/v2/5bab8fe53100000f006543eb";
         }
     //1.2) Endpoint userName is required (error 400)
@@ -58,7 +63,7 @@ public class UserStep {
     //1.4) Endpoint invalid session token (error 401)
         //code
 
-        //2) chamada da UserApi criando um user recebendo UserResponse, se falhar retorna erro
+        //2) call UserApi creating a user that receives a UserResponse, if it fails then return error
         UserApi userApi = new UserApi();
 
         try {

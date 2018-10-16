@@ -125,8 +125,8 @@ public class BaseClient<T> {
         }
     }
 
-    public Object convertFromLinkedHashMap(Class classe, LinkedHashMap object) {
-        return mapper.convertValue(object, classe);
+    public Object convertFromLinkedHashMap(Class caste, LinkedHashMap object) {
+        return mapper.convertValue(object, caste);
     }
 
 }
