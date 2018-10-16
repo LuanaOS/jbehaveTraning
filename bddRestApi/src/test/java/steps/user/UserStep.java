@@ -24,25 +24,25 @@ public class UserStep {
 
     @Then("an user with the data $emailAddress $firstName $lastName $userName $roles is created $path")
     public void createUser(String email, String firstName, String lastName, String userName, List<String> roles, String path) throws ApiException {
-        //1) Montar o UserRequest com os dados do user
+        //1) Create the UserRequest with the user data
         UserRequest userRequest = buildUserAttributes(email, firstName, lastName, userName, roles);
         String sessionToken = "testSessionToken";
 
-        //2) chamada da API UserApi recebendo UserResponse
+        //2) call the UserApi receiving UserResponse
         UserApi userApi = new UserApi();
         UserResponse userResponse = userApi.createUser(sessionToken, new Envelope<>(userRequest), path);
 
-        //3) fazer os asserts se os dados do UserRequest é igual ao dados do UserResponse
+        //3) do the asserts between the data of UserRequest with UserResponse
         assertUser(userRequest, userResponse);
 
-        //4) adiconar no contexto caso tenha sucesso
-        appContxt.addAdminApiUserReference(userResponse.getUserSystemInfo().getId().toString(), userResponse);
+        //4) if the asserts is successful add user in the ApplicationContext
+        appContxt.addApiUserReference(userResponse.getUserSystemInfo().getId().toString(), userResponse);
     }
 
     @Then("an user cannot be created without field $field")
     public void createUserWithoutField(String field) throws ApiException {
 
-        //1) Montar o UserRequest com os dados do user
+        //1) Create the UserRequest with the user data
         UserRequest userRequest = buildUserAttributes();
         String sessionToken = new String();
         String path = new String();
@@ -71,7 +71,7 @@ public class UserStep {
             path = "/v2/5bab907131000034006543f3";
         }
 
-        //2) chamada da API UserApi recebendo UserResponse
+        //2) call the UserApi receiving UserResponse
         UserApi userApi = new UserApi();
 
         try {

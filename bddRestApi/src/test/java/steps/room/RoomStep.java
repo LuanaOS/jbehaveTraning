@@ -26,7 +26,7 @@ public class RoomStep {
     @Given("verify if user $userId has role as CREATE_ROOM")
     public void checkUserRole(String userId) {
 
-        UserResponse userResponse = UserStep.appContxt.lookupAdminApiUserReference(userId);
+        UserResponse userResponse = UserStep.appContxt.lookupApiUserReference(userId);
 
         String roles = "CREATE_ROOM";
 
